@@ -35,6 +35,10 @@ $routes->get('/', 'Home::index');
 $routes->get('/about', 'Home::about');
 $routes->get('/baru', 'Aplikasi::baru');
 
+$routes->group('/backend', function ($routes) {
+   $routes->get('barang', 'Barang::Index');
+});
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

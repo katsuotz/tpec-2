@@ -1,4 +1,7 @@
 <?= $this->extend('admin/template') ?>
+<?= $this->section('title') ?>
+<title>Dashboard</title>
+<?= $this->endSection() ?>
 <?= $this->section('content') ?>
 <section class="section">
     <div class="section-header">
