@@ -6,9 +6,7 @@ class Backend extends BaseController
 {
     public function index()
     {
-        return view('admin/home', [
-            'title' => 'Home',
-        ]);
+        return view('admin/home');
     }
 
     public function about()

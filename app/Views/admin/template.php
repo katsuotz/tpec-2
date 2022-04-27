@@ -240,10 +240,10 @@
         <div class="main-sidebar">
             <aside id="sidebar-wrapper">
                 <div class="sidebar-brand">
-                    <a href="index.html">Stisla</a>
+                    <a href="<?= base_url('/backend') ?>">E-Commerce</a>
                 </div>
                 <div class="sidebar-brand sidebar-brand-sm">
-                    <a href="index.html">St</a>
+                    <a href="<?= base_url('/backend') ?>">EC</a>
                 </div>
                 <ul class="sidebar-menu">
                     <?= $this->include('admin/menu') ?>
