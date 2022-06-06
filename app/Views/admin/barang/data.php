@@ -16,6 +16,7 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Nama Barang</th>
+                            <th scope="col">Gambar</th>
                             <th scope="col">Harga</th>
                             <th scope="col">Warna</th>
                             <th scope="col">Ukuran</th>
@@ -29,13 +30,17 @@
                         <tr>
                             <th scope="row"><?= $key+1 ?></th>
                             <td><?= $barang['nama_barang'] ?></td>
+                            <td><img src="<?= base_url('/image/' . $barang['gambar'])?>" alt="" style="width: 150px"></td>
                             <td><?= $barang['harga'] ?></td>
                             <td><?= $barang['warna'] ?></td>
                             <td><?= $barang['ukuran'] ?></td>
                             <td><?= $barang['deskripsi'] ?></td>
                             <td><?= $barang['created_at'] ?></td>
 <!--                            <td><div class="badge badge-success">Active</div></td>-->
-                            <td><a href="#" class="btn btn-secondary">Detail</a></td>
+                            <td>
+                                <a href="<?= base_url('/') ?>/backend/barang/<?= $barang['slug']; ?>" class="btn btn-warning"> <i class="fas fa-pencil-alt"></i></a>
+                                <a href="#" class="btn btn-primary">Detail</a>
+                            </td>
                         </tr>
                         <?php endforeach ?>
                         </tbody>

@@ -34,9 +34,11 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/about', 'Home::about');
 $routes->get('/baru', 'Aplikasi::baru');
+$routes->get('/barang/(:segment)', 'Barang::detail/$1');
 
 $routes->group('/backend', function ($routes) {
    $routes->get('barang', 'Barang::Index');
+//   $routes->get('barang/(:segment)', 'Barang::detail/$1');
 });
 
 /*

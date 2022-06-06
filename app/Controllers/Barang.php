@@ -13,9 +13,15 @@ class Barang extends BaseController
 
     public function index()
     {
-        $barang = $this->barangModel->findAll();
         return view('admin/barang/data', [
-            'data' => $barang,
+            'data' => $this->barangModel->getBarang(),
+        ]);
+    }
+
+    public function detail($slug)
+    {
+        return view('barang/detail', [
+            'barang' => $this->barangModel->getBarang($slug),
         ]);
     }
 }
