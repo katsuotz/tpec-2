@@ -38,7 +38,7 @@
                             <td><?= $barang['created_at'] ?></td>
 <!--                            <td><div class="badge badge-success">Active</div></td>-->
                             <td>
-                                <a href="<?= base_url('/') ?>/backend/barang/<?= $barang['slug']; ?>" class="btn btn-warning"> <i class="fas fa-pencil-alt"></i></a>
+                                <a href="<?= base_url('/') ?>/barang/<?= $barang['slug']; ?>" class="btn btn-warning"> <i class="fas fa-pencil-alt"></i></a>
                                 <a href="#" class="btn btn-primary">Detail</a>
                             </td>
                         </tr>
