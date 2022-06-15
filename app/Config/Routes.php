@@ -37,8 +37,10 @@ $routes->get('/baru', 'Aplikasi::baru');
 $routes->get('/barang/(:segment)', 'Barang::detail/$1');
 
 $routes->group('/backend', function ($routes) {
-   $routes->get('barang', 'Barang::Index');
-//   $routes->get('barang/(:segment)', 'Barang::detail/$1');
+    $routes->get('barang', 'Barang::index');
+    $routes->get('barang/tambah', 'Barang::create');
+    $routes->post('barang', 'Barang::store');
+    //   $routes->get('barang/(:segment)', 'Barang::detail/$1');
 });
 
 /*

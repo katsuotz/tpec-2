@@ -10,6 +10,16 @@
     <div class="section-body">
         <div class="card">
             <div class="card-body">
+
+                <?php if (session()->getFlashdata('pesan')) : ?>
+                    <div class="alert alert-success" role="alert">
+                        <?= session()->getFlashdata('pesan'); ?>
+                    </div>
+                <?php endif; ?>
+
+
+                <a href="/backend/barang/tambah" class="btn btn-primary mb-3">Tambah Data Barang</a>
+
                 <div class="table-responsive">
                     <table class="table table-bordered table-md">
                         <thead>
@@ -27,21 +37,21 @@
                         </thead>
                         <tbody>
                         <?php foreach ($data as $key => $barang): ?>
-                        <tr>
-                            <th scope="row"><?= $key+1 ?></th>
-                            <td><?= $barang['nama_barang'] ?></td>
-                            <td><img src="<?= base_url('/image/' . $barang['gambar'])?>" alt="" style="width: 150px"></td>
-                            <td><?= $barang['harga'] ?></td>
-                            <td><?= $barang['warna'] ?></td>
-                            <td><?= $barang['ukuran'] ?></td>
-                            <td><?= $barang['deskripsi'] ?></td>
-                            <td><?= $barang['created_at'] ?></td>
-<!--                            <td><div class="badge badge-success">Active</div></td>-->
-                            <td>
-                                <a href="<?= base_url('/') ?>/barang/<?= $barang['slug']; ?>" class="btn btn-warning"> <i class="fas fa-pencil-alt"></i></a>
-                                <a href="#" class="btn btn-primary">Detail</a>
-                            </td>
-                        </tr>
+                            <tr>
+                                <th scope="row"><?= $key + 1 ?></th>
+                                <td><?= $barang['nama_barang'] ?></td>
+                                <td><img src="<?= base_url('/image/' . $barang['gambar']) ?>" alt="" style="width: 150px"></td>
+                                <td><?= $barang['harga'] ?></td>
+                                <td><?= $barang['warna'] ?></td>
+                                <td><?= $barang['ukuran'] ?></td>
+                                <td><?= $barang['deskripsi'] ?></td>
+                                <td><?= $barang['created_at'] ?></td>
+                                <!--                            <td><div class="badge badge-success">Active</div></td>-->
+                                <td>
+                                    <a href="<?= base_url('/') ?>/barang/<?= $barang['slug']; ?>" class="btn btn-warning"> <i class="fas fa-pencil-alt"></i></a>
+                                    <a href="#" class="btn btn-primary">Detail</a>
+                                </td>
+                            </tr>
                         <?php endforeach ?>
                         </tbody>
                     </table>
