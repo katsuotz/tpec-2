@@ -27,19 +27,31 @@ class Barang extends BaseController
 
     public function create()
     {
+        $validation = \Config\Services::validation();
+
         $data = [
-            'title' => "Form Data Barang"
+            'title' => "Form Data Barang",
+            'validation' => $validation,
         ];
+
         return view('admin/barang/tambah', $data);
     }
 
     public function store()
     {
         $validate = $this->validate([
-            'judul' => 'required|is_unique[barang.nama_barang]'
+            'nama' => 'required|is_unique[barang.nama_barang]',
+            'harga' => 'required',
+            'warna' => 'required',
+            'ukuran' => 'required',
+            'deskripsi' => 'required',
+            'gambar' => 'required',
         ]);
 
-        if (!$validate) return redirect()->to('/backend/barang/tambah');
+        $validation = \Config\Services::validation();
+
+        if (!$validate)
+            return redirect()->to('/backend/barang/tambah')->withInput()->with('validation', $validation);
 
         $slug = url_title($this->request->getVar('nama'), '-', true);
 
