@@ -93,7 +93,7 @@ class Barang extends BaseController
     {
         $validate = $this->validate([
             'nama' => [
-                'rules' => 'required',
+                'rules' => 'required|is_unique[barang.nama_barang,id,' . $id .']',
                 'errors' => [
                     'required' => '{field} wajib diisi',
                     'is_unique' => '{field} tidak boleh sama dengan data yang sudah ada'
