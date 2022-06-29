@@ -11,7 +11,7 @@
     <div class="section-body">
         <div class="card">
             <div class="card-body">
-                <form method="POST" action="/backend/barang/update/<?= @$barang ? $barang['id'] : '' ?>">
+                <form method="POST" action="/backend/barang<?= @$barang ? '/update/' . $barang['id'] : '' ?>">
                     <?= csrf_field() ?>
                     <div class="row mb-3">
                         <label for="nama" class="col-sm-2 col-form-label">Nama Barang</label>

@@ -124,9 +124,9 @@ class Barang extends BaseController
             'gambar' => $this->request->getVar('gambar')
         ]);
 
-        session()->setFlashdata('pesan', 'Data Berhasil Disimpan');
+        session()->setFlashdata('pesan', 'Data Berhasil Diubah');
 
-        return redirect()->to('/backend/barang');
+        return redirect()->to('/barang/' . $slug);
     }
 
     public function destroy($id)

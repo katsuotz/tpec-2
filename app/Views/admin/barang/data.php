@@ -47,16 +47,18 @@
                                 <td><?= $barang['deskripsi'] ?></td>
                                 <td><?= $barang['created_at'] ?></td>
                                 <!--                            <td><div class="badge badge-success">Active</div></td>-->
-                                <td class="d-flex">
-                                    <a href="<?= base_url('/') ?>/barang/<?= $barang['slug']; ?>" class="btn btn-warning" style="margin-right: .25rem"> <i class="fas fa-pencil-alt"></i></a>
-                                    <form method="POST" action="/backend/barang/delete/<?= $barang['id'] ?>">
-                                        <?= csrf_field() ?>
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <button type="submit" class="btn btn-danger" style="margin-right: .25rem" onclick="return confirm('Apakah data ingin dihapus?')">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </form>
-                                    <a href="#" class="btn btn-primary">Detail</a>
+                                <td>
+                                    <div class="d-flex">
+                                        <a href="<?= base_url('/') ?>/barang/<?= $barang['slug']; ?>" class="btn btn-warning" style="margin-right: .25rem"> <i class="fas fa-pencil-alt"></i></a>
+                                        <form method="POST" action="/backend/barang/delete/<?= $barang['id'] ?>">
+                                            <?= csrf_field() ?>
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <button type="submit" class="btn btn-danger" style="margin-right: .25rem" onclick="return confirm('Apakah data ingin dihapus?')">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
+                                        <a href="#" class="btn btn-primary">Detail</a>
+                                    </div>
                                 </td>
                             </tr>
                         <?php endforeach ?>
