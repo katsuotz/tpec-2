@@ -21,7 +21,7 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-$routes->setAutoRoute(true);
+$routes->setAutoRoute(false);
 
 /*
  * --------------------------------------------------------------------
@@ -34,13 +34,16 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/about', 'Home::about');
 $routes->get('/baru', 'Aplikasi::baru');
-$routes->get('/barang/(:segment)', 'Barang::detail/$1');
+$routes->get('/barang/(:any)', 'Barang::detail/$1');
 
 $routes->group('/backend', function ($routes) {
     $routes->get('barang', 'Barang::index');
     $routes->get('barang/tambah', 'Barang::create');
+    $routes->get('barang/(:any)/edit', 'Barang::edit/$1');
     $routes->post('barang', 'Barang::store');
-    //   $routes->get('barang/(:segment)', 'Barang::detail/$1');
+    $routes->delete('barang/delete/(:num)', 'Barang::destroy/$1');
+    $routes->post('barang/update/(:num)', 'Barang::update/$1');
+    //   $routes->get('barang/(:any)', 'Barang::detail/$1');
 });
 
 /*

@@ -14,12 +14,17 @@ Barang
                 <p class="card-text"><b>Harga: </b><?= $barang['harga']; ?></p>
                 <p class="card-text"><small class="text-muted"><b>Deskripsi:</b> <?= $barang['deskripsi']; ?></small></p>
 
-<!--                <p class="card-text"><small class="text-muted"><b>H :</b> --><?//= $artikel['penerbit']; ?><!--</small></p>-->
-                <a href="" class="btn btn-warning">Edit</a>
-                <a href="" class="btn btn-danger">Delete</a>
+                <!--                <p class="card-text"><small class="text-muted"><b>H :</b> --><? //= $artikel['penerbit']; ?><!--</small></p>-->
+                <div class="d-flex">
+                    <a href="/backend/barang/<?= $barang['slug'] ?>/edit" class="btn btn-warning" style="margin-right: .5rem">Edit</a>
+                    <form method="POST" action="/backend/barang/delete/<?= $barang['id'] ?>">
+                        <?= csrf_field() ?>
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah data ingin dihapus?')">Delete</button>
+                    </form>
+                </div>
                 <br><br>
                 <a href="/backend/barang">Kembali ke Halaman Utama</a>
-
             </div>
         </div>
     </div>
