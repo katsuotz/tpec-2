@@ -40,7 +40,13 @@ class Barang extends BaseController
     public function store()
     {
         $validate = $this->validate([
-            'nama' => 'required|is_unique[barang.nama_barang]',
+            'nama' => [
+                'rules' =>'required|is_unique[barang.nama_barang]',
+                'errors' => [
+                    'required' => '{field} wajib diisi',
+                    'is_unique' => '{field} tidak boleh sama dengan data yang sudah ada'
+                ],
+            ],
             'harga' => 'required',
             'warna' => 'required',
             'ukuran' => 'required',
